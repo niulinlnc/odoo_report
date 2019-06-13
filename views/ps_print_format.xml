@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_ps_print_format_tree" model="ir.ui.view">
+            <field name="name">打印格式列表</field>
+            <field name="model">ps.print.format</field>
+            <field name="arch" type="xml">
+                <tree string="格式列表">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="model_id"/>
+                    <field name="is_valid"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ps_print_format_form" model="ir.ui.view">
+            <field name="name">打印格式表单</field>
+            <field name="model">ps.print.format</field>
+            <field name="arch" type="xml">
+                <form string="格式表单">
+                   <header>
+                       <button name="validate" class="oe_highlight" states="draft" string="启用" type="object"/>
+                       <button name="draft" class="oe_highlight" states="validate" string="封存" type="object"/>
+                       <field name="state" widget="statusbar"/>
+                   </header>
+                   <sheet>
+                       <group>
+                           <group>
+                               <field name="name"/>
+                               <field name="model_id"/>
+                           </group>
+                           <group>
+                               <field name="description"/>
+                               <field name="is_valid"/>
+                           </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_server_ps_print_format" model="ir.actions.server">
+            <field name="name">打印服务器端动作</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="model_ps_print_format"/>
+            <field name="binding_model_id" ref="model_ps_print_format"/>
+            <field name="code">
+                records.action_ps_print()
+            </field>
+        </record>
+        <record id="action_server_ps_print_format111" model="ir.actions.server">
+            <field name="name">打印服务器端动作111</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="model_ps_print_format"/>
+            <field name="binding_model_id" ref="model_ps_print_format"/>
+            <field name="code">
+                records.action_ps_print()
+            </field>
+        </record>
+
+        <record id="action_ps_print_format" model="ir.actions.act_window">
+            <field name="name">打印格式</field>
+            <field name="res_model">ps.print.format</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                新建打印格式
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

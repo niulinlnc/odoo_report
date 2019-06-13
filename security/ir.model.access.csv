@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo_report_ps_print_format,odoo_report.ps_print_format,model_ps_print_format,,1,1,1,1

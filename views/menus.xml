@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem
+                id="menu_ps_print"
+                name="打印"
+                web_icon="static/description/icon.png"
+                groups="base.group_user"/>
+        <menuitem
+                id="menu_action_account_form"
+                name="格式定义"
+                parent="menu_ps_print"
+                action="action_ps_print_format"
+                groups="base.group_user"/>
+    </data>
+</odoo>
